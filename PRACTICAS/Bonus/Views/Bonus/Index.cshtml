@@ -1,0 +1,75 @@
+@model BonusF.Models.BonusC
+@{
+    ViewData["Title"] = "Bonus";
+}
+<div class="row" >
+
+    <div class="col-md-4">
+        <h1 class="display-4">Bonus Covid</h1>
+        <form asp-controller="Bonus" asp-action="Registrar">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group row">
+                <input asp-for="dni" class="form-control" placeholder="DNI" />
+                <span asp-validation-for="dni" class="text-danger"></span>
+                
+            </div>
+
+            <div class="form-group row">
+                <input asp-for="Name" class="form-control" placeholder="Nombre" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+            <div class="form-group row">
+                <input asp-for="Lastname" class="form-control" placeholder="Apellido" />
+                <span asp-validation-for="Lastname" class="text-danger"></span>
+            </div>
+
+            <div class="form-group row">
+                <input asp-for="District" class="form-control" placeholder="Distrito" />
+                <span asp-validation-for="District" class="text-danger"></span>
+            </div>
+
+            <div class="form-group row">
+                <label asp-for="Bank" class="col-sm-2 col-form-label"></label>
+                
+                <div class="col-sm-10">
+                <select asp-for="Bank" asp-items="Model.Banks" class="custom-select mr-sm-2"></select>
+                <span asp-validation-for="Bank" class="text-danger"></span>
+
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <input asp-for="Age" class="form-control" placeholder="Edad" />
+                <span asp-validation-for="Age" class="text-danger"></span>
+            </div>
+
+            <fieldset class="form-group">
+                <div class="row">
+                    <label  asp-for="Gender" class="col-form-label col-sm-2 pt-0"></label>
+
+                    <div class="col-sm-10">
+
+                        <div class="form-check">
+                            <label ><input class="form-check-input" asp-for="Gender" value="M" type="radio" />Male</label>
+                        </div>
+
+                        <div class="form-check">
+                            <label ><input class="form-check-input" asp-for="Gender" value="F" type="radio"/>Female</label>
+                        </div>
+                     <span asp-validation-for="Gender" class="text-danger"></span>
+
+                    </div>
+                </div>
+            </fieldset>
+
+            <div class="form-group" align='center'>
+                 <button type="submit" class="btn btn-primary">Registrar</button> 
+            </div>    
+
+        </form>
+
+         <td>@Html.DisplayTextFor(model => model.Response)</td>  
+    </div>
+
+</div>
